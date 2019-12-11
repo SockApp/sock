@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "121650905102",
+    "firebase_url": "https://sock-91ac3.firebaseio.com",
+    "project_id": "sock-91ac3",
+    "storage_bucket": "sock-91ac3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:121650905102:android:e674a15a7289607098fc5f",
+        "android_client_info": {
+          "package_name": "com.sock"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "121650905102-rdpvb1affsh9q4tmm4dqb0vpvlld26l7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAATvh9edbTHdNkSaS9HZGMu07febkcs7k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "121650905102-rdpvb1affsh9q4tmm4dqb0vpvlld26l7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
