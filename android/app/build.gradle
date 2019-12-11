@@ -192,6 +192,9 @@ dependencies {
         implementation jscFlavor
     }
     implementation project(':react-native-navigation')
+    implementation project(path: ":@react-native-firebase_firestore")
+
+
 }
 
 

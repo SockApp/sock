@@ -34,7 +34,7 @@ function App(props) {
       const querySnapshot = await firestore()
         .collection('Doors')
         .get();
-      console.log(querySnapshot.size());
+      console.log(querySnapshot.size);
     };
 
     asyncFunc();
