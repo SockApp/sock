@@ -5,7 +5,7 @@ class DoorScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text>Door</Text>
+        <Text>Door {this.props.doorId}</Text>
       </View>
     );
   }

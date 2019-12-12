@@ -1,15 +1,15 @@
 import { createAppContainer, createSwitchNavigator } from 'react-navigation';
-import DoorScreen from './home/Door';
 import SplashScreen from './onboard/Splash';
+import DoorContainer from './home/DoorContainer';
 
 export default createAppContainer(
   createSwitchNavigator(
     {
-      DoorScreen,
-      SplashScreen,
+      Doors: DoorContainer,
+      Splash: SplashScreen,
     },
     {
-      initialRouteName: 'SplashScreen',
+      initialRouteName: 'Splash',
     },
   ),
 );

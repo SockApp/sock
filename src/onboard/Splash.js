@@ -3,7 +3,7 @@ import { Text, View, StyleSheet } from 'react-native';
 
 class SplashScreen extends React.Component {
   componentDidMount() {
-    this.props.navigation.navigate('DoorScreen');
+    this.props.navigation.navigate('Doors');
   }
 
   render() {
