@@ -60,6 +60,7 @@
 		483B73FA7D9CE8019ABEADAE /* libPods-sock-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-sock-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		618B5916BF19A2574F42FD09 /* libPods-sockTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-sockTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		69AD485923A1BA8F00B03AF3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		69AD485B23A2D8C700B03AF3 /* sock.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = sock.entitlements; path = sock/sock.entitlements; sourceTree = "<group>"; };
 		88D5799041064B730D8EC97B /* libPods-sock.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-sock.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E7DBB896C864865D0C53771 /* Pods-sockTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sockTests.debug.xcconfig"; path = "Target Support Files/Pods-sockTests/Pods-sockTests.debug.xcconfig"; sourceTree = "<group>"; };
 		A6CED6E85E8DD0C6220BD9D5 /* Pods-sock-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sock-tvOS.release.xcconfig"; path = "Target Support Files/Pods-sock-tvOS/Pods-sock-tvOS.release.xcconfig"; sourceTree = "<group>"; };
@@ -127,6 +128,7 @@
 		13B07FAE1A68108700A75B9A /* sock */ = {
 			isa = PBXGroup;
 			children = (
+				69AD485B23A2D8C700B03AF3 /* sock.entitlements */,
 				69AD485923A1BA8F00B03AF3 /* GoogleService-Info.plist */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
@@ -660,6 +662,7 @@
 			baseConfigurationReference = CD50EF8374714ED25FEA5130 /* Pods-sock.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = sock/sock.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
 				INFOPLIST_FILE = sock/Info.plist;
@@ -680,6 +683,7 @@
 			baseConfigurationReference = F1FE40AB6426A88FCC072381 /* Pods-sock.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = sock/sock.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
 				INFOPLIST_FILE = sock/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

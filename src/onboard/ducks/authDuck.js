@@ -1,5 +1,6 @@
-import { put, call, takeLatest } from 'redux-saga/effects';
-import firebaseAuth from '@react-native-firebase/auth';
+import { all, put, call, takeLatest } from 'redux-saga/effects';
+import firebase from '@react-native-firebase/app';
+import '@react-native-firebase/auth';
 
 const LOGIN = 'auth/fetchUser';
 const LOGIN_SUCCESS = 'auth/fetchUserComplete';
@@ -11,7 +12,6 @@ const ADD_INFO = 'auth/addInfo';
 const INFO_SUCCESS = 'auth/infoSuccess';
 const INFO_FAILED = 'auth/infoFailed';
 
-import { serverUrl } from './config';
 let confirmationResult;
 
 const initialState = {
@@ -47,18 +47,23 @@ export function confirm(code) {
 
 function* loginSaga(action) {
   try {
-    confirmationResult = yield call(firebaseAuth.signInWithPhoneNumber, [
+    console.log(action);
+    console.log(firebase.auth().signInWithPhoneNumber);
+    confirmationResult = yield call(
+      [firebase.auth(), 'signInWithPhoneNumber'],
       action.phoneNumber,
-    ]);
+    );
+    console.log(confirmationResult);
     yield put({ type: LOGIN_SUCCESS });
   } catch (e) {
+    console.log(e);
     yield put({ type: LOGIN_FAILED, payload: e });
   }
 }
 
 function* verifyTokenSaga(action) {
   try {
-    const { user } = yield call(confirmationResult, [action.payload]);
+    const { user } = yield call(confirmationResult, action.payload);
     yield put({ type: VERIFY_SUCCESS, user });
   } catch (e) {
     yield put({ type: VERIFY_FAILED, err: action.payload });
@@ -66,6 +71,8 @@ function* verifyTokenSaga(action) {
 }
 
 export function* saga() {
-  yield takeLatest(LOGIN, loginSaga);
-  yield takeLatest(VERIFY_TOKEN, verifyTokenSaga);
+  yield all([
+    takeLatest(LOGIN, loginSaga),
+    takeLatest(VERIFY_TOKEN, verifyTokenSaga)
+  ]);
 }
