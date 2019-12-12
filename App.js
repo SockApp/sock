@@ -10,7 +10,7 @@ import React, { useEffect } from 'react';
 import { StyleSheet } from 'react-native';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
 import firestore from '@react-native-firebase/firestore';
-import SplashScreen from './src/onboard/Splash';
+import AppNavigator from './src/navigator';
 
 function App(props) {
   useEffect(() => {
@@ -25,7 +25,7 @@ function App(props) {
   });
 
   return (
-    <SplashScreen />
+    <AppNavigator />
   );
 }
 
