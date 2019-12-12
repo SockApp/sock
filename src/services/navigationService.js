@@ -1,23 +1,28 @@
-import { NavigationActions } from 'react-navigation';
+import { NavigationActions, SwitchActions } from 'react-navigation';
 
-const config = {};
+let navigator;
+
 export function setNavigator(nav) {
   if (nav) {
-    config.navigator = nav;
+    navigator = nav;
   }
 }
 
 export function navigate(routeName, params) {
-  if (config.navigator && routeName) {
+  if (navigator && routeName) {
     const action = NavigationActions.navigate({ routeName, params });
-    config.navigator.dispatch(action);
+    navigator.dispatch(action);
   }
 }
 
+export function switchNavigate(routeName) {
+  navigator.dispatch(SwitchActions.jumpTo({ routeName }));
+}
+
 export function goBack() {
-  if (config.navigator) {
-    let action = NavigationActions.back({});
-    config.navigator.dispatch(action);
+  if (navigator) {
+    const action = NavigationActions.back({});
+    navigator.dispatch(action);
   }
 }
 
@@ -25,4 +30,5 @@ export default {
   setNavigator,
   goBack,
   navigate,
+  switchNavigate,
 };

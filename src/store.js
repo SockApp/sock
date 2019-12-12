@@ -1,5 +1,6 @@
 import createSagaMiddleware from 'redux-saga';
-import { createStore, combineReducers, applyMiddleware } from 'redux';
+import logger from 'redux-logger';
+import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import { all, fork } from 'redux-saga/effects';
 import {
   reducer as onBoardReducer,
@@ -15,7 +16,10 @@ function* rootSaga() {
 }
 
 const sagaMiddleware = createSagaMiddleware();
-const store = createStore(rootReducer, applyMiddleware(sagaMiddleware));
+const store = createStore(
+  rootReducer,
+  compose(applyMiddleware(sagaMiddleware, logger)),
+);
 sagaMiddleware.run(rootSaga);
 
 export default store;
