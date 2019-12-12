@@ -24,9 +24,7 @@ function App(props) {
     asyncFunc();
   });
 
-  return (
-    <AppNavigator />
-  );
+  return <AppNavigator />;
 }
 
 const styles = StyleSheet.create({

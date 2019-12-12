@@ -30,6 +30,13 @@
             {
               "client_id": "121650905102-rdpvb1affsh9q4tmm4dqb0vpvlld26l7.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "121650905102-v9olq3gq6b8s6ctlnami9jkthn7urgl1.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.sock.sock"
+              }
             }
           ]
         }

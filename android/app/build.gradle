@@ -131,11 +131,10 @@ android {
         applicationId "com.sock"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        missingDimensionStrategy "RNN.reactNativeVersion", "reactNative60" // See note below!
-        multiDexEnabled true
-
         versionCode 1
         versionName "1.0"
+        multiDexEnabled true
+
     }
     splits {
         abi {
@@ -184,20 +183,16 @@ android {
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation "com.facebook.react:react-native:+"  // From node_modules
-     if (enableHermes) {
+    implementation 'androidx.appcompat:appcompat:1.1.0-rc01'
+    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0-alpha02'
+    if (enableHermes) {
         def hermesPath = "../../node_modules/hermes-engine/android/";
         debugImplementation files(hermesPath + "hermes-debug.aar")
         releaseImplementation files(hermesPath + "hermes-release.aar")
     } else {
         implementation jscFlavor
     }
-    implementation project(':react-native-navigation')
-    implementation project(path: ":@react-native-firebase_firestore")
-
-
 }
-
-
 
 // Run this once to be able to run the application with BUCK
 // puts all compile dependencies into folder libs for BUCK to use
@@ -207,4 +202,3 @@ task copyDownloadableDepsToLibs(type: Copy) {
 }
 
 apply from: file("../../node_modules/@react-native-community/cli-platform-android/native_modules.gradle"); applyNativeModulesAppBuildGradle(project)
-apply plugin: 'com.google.gms.google-services'
