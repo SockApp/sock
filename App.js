@@ -7,12 +7,21 @@
  */
 
 import React, { useEffect } from 'react';
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Text, Button } from 'react-native';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
 import firestore from '@react-native-firebase/firestore';
 import AppNavigator from './src/navigator';
+import AsyncStorage from '@react-native-community/async-storage';
 
 function App(props) {
+  let storeData = async (key, value) => {
+    try {
+      await AsyncStorage.setItem('@storage_Key', 'stored value');
+    } catch (e) {
+      // saving error
+    }
+  };
+
   useEffect(() => {
     let asyncFunc = async () => {
       const querySnapshot = await firestore()
@@ -25,6 +34,12 @@ function App(props) {
   });
 
   return <AppNavigator />;
+  // return (
+  //   <>
+  //     <Text> Hello </Text>
+  //     <Button title="Abhay"> Test</Button>
+  //   </>
+  // );
 }
 
 const styles = StyleSheet.create({
