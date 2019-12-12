@@ -47,7 +47,9 @@ export function confirm(code) {
 
 function* loginSaga(action) {
   try {
-    confirmationResult = yield call(firebaseAuth.signInWithPhoneNumber, [action.phoneNumber]);
+    confirmationResult = yield call(firebaseAuth.signInWithPhoneNumber, [
+      action.phoneNumber,
+    ]);
     yield put({ type: LOGIN_SUCCESS });
   } catch (e) {
     yield put({ type: LOGIN_FAILED, payload: e });

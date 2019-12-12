@@ -6,7 +6,7 @@
  * @flow
  */
 
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { StyleSheet, Text, Button } from 'react-native';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
 import firestore from '@react-native-firebase/firestore';
@@ -16,11 +16,23 @@ import AsyncStorage from '@react-native-community/async-storage';
 function App(props) {
   let storeData = async (key, value) => {
     try {
-      await AsyncStorage.setItem('@storage_Key', 'stored value');
+      await AsyncStorage.setItem(key, value);
     } catch (e) {
-      // saving error
+      console.log(e);
     }
   };
+
+  let getData = async key => {
+    let data;
+    try {
+      data = await AsyncStorage.getItem(key);
+    } catch (e) {
+      console.log(e);
+    }
+    return data;
+  };
+
+  let [phone, setPhone] = useState('');
 
   useEffect(() => {
     let asyncFunc = async () => {
@@ -29,17 +41,15 @@ function App(props) {
         .get();
       console.log(querySnapshot.size);
     };
+    let checkForPhone = async () => {
+      let data = await getData('phone');
+      setPhone(data);
+    };
 
     asyncFunc();
   });
 
   return <AppNavigator />;
-  // return (
-  //   <>
-  //     <Text> Hello </Text>
-  //     <Button title="Abhay"> Test</Button>
-  //   </>
-  // );
 }
 
 const styles = StyleSheet.create({
