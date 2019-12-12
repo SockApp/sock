@@ -6,27 +6,11 @@
  * @flow
  */
 
-import React, {useEffect} from 'react';
-import {
-  SafeAreaView,
-  StyleSheet,
-  ScrollView,
-  View,
-  Button,
-  Text,
-  StatusBar,
-} from 'react-native';
-
-import {
-  Header,
-  LearnMoreLinks,
-  Colors,
-  DebugInstructions,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
-
-import {useNavigationComponentDidAppear} from 'react-native-navigation-hooks';
+import React, { useEffect } from 'react';
+import { StyleSheet } from 'react-native';
+import { Colors } from 'react-native/Libraries/NewAppScreen';
 import firestore from '@react-native-firebase/firestore';
+import SplashScreen from './src/onboard/Splash';
 
 function App(props) {
   useEffect(() => {
@@ -41,12 +25,7 @@ function App(props) {
   });
 
   return (
-    <>
-      <View>
-        <Button title="Hello">Test</Button>
-        <Text>HEllo</Text>
-      </View>
-    </>
+    <SplashScreen />
   );
 }
 
