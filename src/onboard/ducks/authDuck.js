@@ -1,4 +1,6 @@
 import { all, put, call, takeLatest } from 'redux-saga/effects';
+import '@react-native-firebase/auth';
+import '@react-native-firebase/firestore';
 import { NavigationService, AuthService } from '../../services';
 
 const LOGIN = 'auth/fetchUser';
@@ -7,9 +9,6 @@ const LOGIN_FAILED = 'auth/fetchUserFailed';
 const VERIFY_TOKEN = 'auth/verifyToken';
 const VERIFY_SUCCESS = 'auth/tokenSuccess';
 const VERIFY_FAILED = 'auth/tokenFailed';
-const ADD_INFO = 'auth/addInfo';
-const INFO_SUCCESS = 'auth/infoSuccess';
-const INFO_FAILED = 'auth/infoFailed';
 
 const initialState = {
   pending: false,
@@ -54,6 +53,15 @@ function* loginSaga(action) {
 function* verifyTokenSaga(action) {
   try {
     yield call(AuthService.verify, action.code);
+    const userInfoAdded = yield call(AuthService.userInfoAdded);
+
+    console.log(userInfoAdded, 'userInfoAdded');
+    if (userInfoAdded) {
+      NavigationService.switchNavigate('Main');
+    } else {
+      NavigationService.navigate('AddInfo');
+    }
+
     yield put({ type: VERIFY_SUCCESS });
   } catch (e) {
     console.log(e);
@@ -64,6 +72,6 @@ function* verifyTokenSaga(action) {
 export function* saga() {
   yield all([
     takeLatest(LOGIN, loginSaga),
-    takeLatest(VERIFY_TOKEN, verifyTokenSaga)
+    takeLatest(VERIFY_TOKEN, verifyTokenSaga),
   ]);
 }

@@ -1,13 +1,12 @@
 import { createStackNavigator } from 'react-navigation-stack';
-import PhoneScreen from './components/Phone';
-import VerifyScreen from './components/Verify';
-import InfoScreen from './components/Info';
+import PhoneScreen from './screens/Phone';
+import VerifyScreen from './screens/Verify';
+import AddInfoScreen from './screens/AddInfo';
 
-//phone, verify, info
-let LoginNav = createStackNavigator({
+const LoginNav = createStackNavigator({
   Phone: PhoneScreen,
   Verify: VerifyScreen,
-  Info: InfoScreen,
+  AddInfo: AddInfoScreen,
 });
 
 export default LoginNav;

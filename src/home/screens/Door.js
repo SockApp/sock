@@ -1,7 +1,7 @@
 import React from 'react';
 import { Text, View, Button } from 'react-native';
-import firebase from '@react-native-firebase/app';
-import '@react-native-firebase/auth';
+import firebase from '@react-native-firebase/app/lib/index';
+import '@react-native-firebase/auth/lib/index';
 
 class DoorScreen extends React.Component {
   render() {

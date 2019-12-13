@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Text, View, TextInput } from 'react-native';
 
-let LoginScreen = props => {
+function AddInfoScreen(props) {
   useEffect(() => {});
 
   return (
@@ -9,6 +9,6 @@ let LoginScreen = props => {
       <Text>Hello, enter your phone next</Text>
     </View>
   );
-};
+}
 
-export default LoginScreen;
+export default AddInfoScreen;

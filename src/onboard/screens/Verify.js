@@ -10,11 +10,7 @@ const LoginScreen = () => {
   return (
     <View>
       <Text>Hello, enter the verification code</Text>
-      <TextInput
-        style={styles.input}
-        onChangeText={setCode}
-        value={code}
-      />
+      <TextInput style={styles.input} onChangeText={setCode} value={code} />
       <Button title="move on" onPress={() => dispatch(verify(code))} />
     </View>
   );
